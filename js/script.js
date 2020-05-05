@@ -106,6 +106,36 @@ window.addEventListener('DOMContentLoaded', function () {
     }
 
     setLock('timer', deadline);
-});
 
-//Example;
+    //Modal
+
+    let more = document.querySelector('.more'),
+        overlay = document.querySelector('.overlay'),
+        close = document.querySelector('.popup-close'),
+        description = document.querySelectorAll('.description-btn');// button - "узнать подробнее" in the tabs
+
+    more.addEventListener('click', function () {
+        overlay.style.display = 'block';
+        this.classList.add('more-splash');
+        //stops to scroll the page
+        document.body.style.overflow = 'hidden';
+    });
+
+    //function for each buttons description []
+    description.forEach(function(item){
+        item.addEventListener('click', function () {
+            overlay.style.display = 'block';
+            this.classList.add('more-splash');
+            //stops to scroll the page
+            document.body.style.overflow = 'hidden';
+        });
+    });
+
+    close.addEventListener('click', function () {
+        overlay.style.display = 'none';
+        more.classList.remove('more-splash');
+        //description.classList.remove('more-splash');
+        //stops to scroll the page
+        document.body.style.overflow = '';
+    });
+});
