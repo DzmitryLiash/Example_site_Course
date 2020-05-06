@@ -1,4 +1,4 @@
-window.addEventListener('DOMContentLoaded', function () {
+window.addEventListener('DOMContentLoaded', () => {
 
     'use strict';
     let tab = document.querySelectorAll('.info-header-tab'),
@@ -21,7 +21,7 @@ window.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    info.addEventListener('click', function (event) {
+    info.addEventListener('click', (event) => {
         let target = event.target;
         if (target && target.classList.contains('info-header-tab')) {
             for (let i = 0; i < tab.length; i++) {
@@ -114,7 +114,7 @@ window.addEventListener('DOMContentLoaded', function () {
         close = document.querySelector('.popup-close'),
         description = document.querySelectorAll('.description-btn');// button - "узнать подробнее" in the tabs
 
-    more.addEventListener('click', function () {
+    more.addEventListener('click', () => {
         overlay.style.display = 'block';
         this.classList.add('more-splash');
         //stops to scroll the page
@@ -122,8 +122,8 @@ window.addEventListener('DOMContentLoaded', function () {
     });
 
     //function for each buttons description []
-    description.forEach(function(item){
-        item.addEventListener('click', function () {
+    description.forEach((item) => {
+        item.addEventListener('click', () =>{
             overlay.style.display = 'block';
             this.classList.add('more-splash');
             //stops to scroll the page
@@ -131,11 +131,13 @@ window.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    close.addEventListener('click', function () {
+    close.addEventListener('click', () => {
         overlay.style.display = 'none';
         more.classList.remove('more-splash');
         //description.classList.remove('more-splash');
         //stops to scroll the page
         document.body.style.overflow = '';
     });
+
+
 });
